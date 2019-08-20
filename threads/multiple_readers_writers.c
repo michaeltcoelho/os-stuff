@@ -33,7 +33,7 @@ void* reader() {
     pthread_mutex_lock(&mutex);
         counter_state--;
         if (counter_state == 0)
-            pthread_cond_broadcast(&write_mode);
+            pthread_cond_signal(&write_mode);
     pthread_mutex_unlock(&mutex);
     fflush(stdout);
 }
